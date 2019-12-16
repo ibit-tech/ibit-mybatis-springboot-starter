@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>tech.ibit</groupId>
+    <artifactId>ibit-mybatis-springboot-starter</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <gpg.skip>false</gpg.skip>
+        <javadoc.skip>false</javadoc.skip>
+        <ibit-mybatis.version>1.0</ibit-mybatis.version>
+
+        <spring-boot.version>1.5.8.RELEASE</spring-boot.version>
+        <mybatis-spring-boot-starter.version>1.3.0</mybatis-spring-boot-starter.version>
+
+        <test.commons-logging-api.version>1.1</test.commons-logging-api.version>
+        <test.spring-boot-starter-test.version>1.5.8.RELEASE</test.spring-boot-starter-test.version>
+        <test.h2.version>1.4.194</test.h2.version>
+        <test.junit.version>4.12</test.junit.version>
+
+    </properties>
+
+    <name>ibit-mybatis-springboot-starter</name>
+    <url>https://github.com/ibit-tech/ibit-mybatis-springboot-starter</url>
+    <description>ibit-mybatis-springboot-starter</description>
+
+    <scm>
+        <url>https://github.com/ibit-tech/ibit-mybatis-springboot-starter</url>
+        <connection>scm:git:https://github.com/ibit-tech/ibit-mybatis-springboot-starter.git</connection>
+    </scm>
+
+    <organization>
+        <name>IBIT TECH</name>
+        <url>https://github.com/ibit-tech</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <id>ibit-tech</id>
+            <name>IBIT TECH</name>
+            <email>ibit_tech@aliyun.com</email>
+        </developer>
+
+        <developer>
+            <id>xiaobenma020</id>
+            <name>xiaobenma020</name>
+            <email>xiaobenma020@gmail.com</email>
+        </developer>
+    </developers>
+
+
+    <licenses>
+        <license>
+            <name>Apache 2</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <dependencies>
+
+        <!--ibit-mybatis-->
+        <dependency>
+            <groupId>tech.ibit</groupId>
+            <artifactId>ibit-mybatis</artifactId>
+            <version>${ibit-mybatis.version}</version>
+        </dependency>
+
+
+        <!-- springboot-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>${mybatis-spring-boot-starter.version}</version>
+        </dependency>
+
+        <!--h2database-->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${test.h2.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--spring test-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>1.5.8.RELEASE</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.vaadin.external.google</groupId>
+                    <artifactId>android-json</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging-api</artifactId>
+            <version>${test.commons-logging-api.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${test.junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+        <finalName>ibit-mybatis-springboot-starter</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+            </plugin>
+
+
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadoc</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <skip>${javadoc.skip}</skip>
+                    <show>public</show>
+                    <charset>UTF-8</charset>
+                    <encoding>UTF-8</encoding>
+                    <docencoding>UTF-8</docencoding>
+                    <links>
+                        <link>http://docs.oracle.com/javase/8/docs/api</link>
+                    </links>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <version>1.6</version>
+                <configuration>
+                    <skip>${gpg.skip}</skip>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    
+</project>
