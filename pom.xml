@@ -22,7 +22,7 @@
 
         <test.commons-logging-api.version>1.1</test.commons-logging-api.version>
         <test.spring-boot-starter-test.version>1.5.8.RELEASE</test.spring-boot-starter-test.version>
-        <test.h2.version>1.4.194</test.h2.version>
+        <test.h2.version>2.1.210</test.h2.version>
         <test.junit.version>4.12</test.junit.version>
 
     </properties>
